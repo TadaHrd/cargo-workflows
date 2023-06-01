@@ -1,0 +1,14 @@
+# "default" is the default workflow
+[default]
+
+# Commands to run
+[default.commands]
+clippy = [ "cargo", "clippy" ]
+build = [ "cargo", "build", "--release" ]
+run = [ "cargo", "run", "--release" ]
+
+# Environment variables
+[default.env]
+"Env 1" = "true"
+"Env-2" = "42"
+"Env_3" = "50"

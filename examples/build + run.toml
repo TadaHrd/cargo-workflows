@@ -1,0 +1,7 @@
+[default.commands]
+run = [ "cargo", "workflows", "-w", "run" ]
+
+[run.commands]
+clippy = [ "cargo", "clippy" ]
+build = [ "cargo", "build", "--release" ]
+run = [ "cargo", "run", "--release" ]
