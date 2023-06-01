@@ -1,0 +1,3 @@
+# error: the "default" workflow doesn't exist
+[no-default-workflow]
+commands = {}

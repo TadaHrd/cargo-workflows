@@ -19,7 +19,9 @@ impl core::fmt::Display for Error {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self {
             Self::FailedToExecuteCommand(e) => write!(f, "Failed to execute command: {}", e),
-            Self::CommandListTooShort { name } => write!(f, "Command list too short (0): {}", name),
+            Self::CommandListTooShort { name } => {
+                write!(f, "Command list is empty in {} (workspaces.toml)", name)
+            }
             Self::Other(e) => write!(f, "{e}"),
         }
     }

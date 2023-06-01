@@ -12,10 +12,14 @@ pub enum Error {
 impl core::fmt::Display for Error {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self {
-            Self::FileOpenError(e) => write!(f, "Error opening workflows.toml: {}", e),
-            Self::TomlParseError(e) => write!(f, "Error parsing workflows.toml: {}", e),
+            Self::FileOpenError(e) => write!(f, "Cannot open workflows.toml: {}", e),
+            Self::TomlParseError(e) => write!(f, "Cannot parse workflows.toml: {}", e),
             Self::WorkflowNotFound { workflow } => {
-                write!(f, "Error: workflow \"{}\" doesn't exist", workflow)
+                if workflow != "default" {
+                    write!(f, "workflow \"{}\" doesn't exist", workflow)
+                } else {
+                    write!(f, "the \"default\" workflow doesn't exist")
+                }
             }
         }
     }

@@ -1,0 +1,6 @@
+[default]
+commands = {}
+
+# error: Command list is empty in argument-list-too-short.error
+[argument-list-too-short.commands]
+error = []

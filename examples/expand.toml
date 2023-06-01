@@ -4,4 +4,3 @@ expand = [ "cargo", "workflows", "-w", "expand" ]
 [expand.commands]
 expand_lib = [ "cmd", "/C", "cargo expand --lib > expand/lib.rs" ]
 expand_bin = [ "cmd", "/C", "cargo expand --bin cargo-workflows > expand/bin.rs" ]
-
