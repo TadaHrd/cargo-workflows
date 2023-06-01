@@ -3,6 +3,13 @@ name = "cargo-workflows"
 version = "0.1.0"
 edition = "2021"
 
+license = "MIT"
+repository = "https://github.com/tadaHrd/cargo-workflows"
+description = """
+A library for running workflows.
+"""
+
+
 [dependencies]
 clap = { version = "4.3.0", features = ["derive"] }
 serde = { version = "1.0.163", features = ["derive"] }

@@ -6,7 +6,7 @@ A library for running workflows.
 
 First, install the crate using `cargo install cargo-workflows`.
 
-Second, initialize a new `workflows.toml file using `cargo workflows init`.
+Second, initialize a new `workflows.toml` file using `cargo workflows init`.
 
 Third, open the file and you should see:
 ```toml
