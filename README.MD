@@ -2,7 +2,7 @@
 
 A library for running workflows.
 
-# Usage
+## Usage
 
 First, install the crate using `cargo install cargo-workflows`.
 
