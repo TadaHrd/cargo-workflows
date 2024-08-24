@@ -9,9 +9,12 @@ description = """
 A library for running workflows.
 """
 
+[badges.maintenance]
+status = "deprecated"
 
 [dependencies]
 clap = { version = "4.3.0", features = ["derive"] }
 colored = "2.0.0"
 serde = { version = "1.0.163", features = ["derive"] }
+thiserror = "1.0.43"
 toml = "0.7.4"

@@ -1,6 +1,6 @@
 use colored::Colorize;
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
+fn main() {
     if let Err(e) = cargo_workflows::main() {
         println!(
             "{error}{colon} {e}",
@@ -9,6 +9,4 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         );
         std::process::exit(1);
     }
-
-    Ok(())
 }

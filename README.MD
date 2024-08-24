@@ -2,6 +2,9 @@
 
 A library for running workflows.
 
+> [!WARNING]
+> This is deprecated, use `cargo-make` instead.
+
 ## Usage
 
 First, install the crate using `cargo install cargo-workflows`.

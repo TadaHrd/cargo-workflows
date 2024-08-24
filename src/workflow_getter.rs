@@ -1,37 +1,22 @@
 use std::collections::HashMap;
 
-use alloc::{string::String, vec::Vec};
+use alloc::{collections::BTreeMap, string::String, vec::Vec};
 
-#[derive(Debug)]
+#[derive(Debug, thiserror::Error)]
 pub enum Error {
+    #[error("cannot open workflows.toml: {0}")]
     FileOpenError(std::io::Error),
+    #[error("cannot parse workflows.toml: {0}")]
     TomlParseError(toml::de::Error),
+    #[error("workflow \"{workflow}\" doesn't exist")]
     WorkflowNotFound { workflow: String },
-}
-
-impl core::fmt::Display for Error {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        match self {
-            Self::FileOpenError(e) => write!(f, "Cannot open workflows.toml: {}", e),
-            Self::TomlParseError(e) => write!(f, "Cannot parse workflows.toml: {}", e),
-            Self::WorkflowNotFound { workflow } => {
-                if workflow != "default" {
-                    write!(f, "workflow \"{}\" doesn't exist", workflow)
-                } else {
-                    write!(f, "the \"default\" workflow doesn't exist")
-                }
-            }
-        }
-    }
 }
 
 #[derive(Debug, Clone, serde::Deserialize)]
 pub struct Workflow {
     pub env: Option<HashMap<String, String>>,
-    pub commands: HashMap<String, Vec<String>>,
+    pub commands: BTreeMap<String, Vec<String>>,
 }
-
-impl std::error::Error for Error {}
 
 /// Gets a workflow
 pub fn get_workflow(workflow: &str) -> Result<Workflow, Error> {
